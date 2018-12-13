@@ -20,10 +20,10 @@ The function reads a **complex fixed-width format** file and returns a `dict` wi
         record type. The record types included in the colspecs indicates which record 
         types are supposed to be read. Lines with other types will be ignored.
         
-* **names**: `dict` of line type -> `list`, default `None` 
+* **names**: `dict` of record type -> `list`, default `None` 
         dict of list of column names to use, one list for each record type.
         
-* **dtype**: `dict` of line type -> `dict` of column -> type, default `None`  
+* **dtype**: `dict` of record type -> `dict` of column -> type, default `None`  
         Data type for columns, for each record type. If not specified for a
         specific column, data will be kept as `str`.
         
