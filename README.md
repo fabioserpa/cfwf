@@ -11,25 +11,31 @@ The function reads a **complex fixed-width format** file and returns a `dict` wi
         object with a read() method (such as a file handle or StringIO).
         
 **type_width**: int
+
         Number of characters indicating the line type in the beginning of each 
         line.
         
 **colspecs**: dict of line type -> list of pairs (int, int).
+
         A dict of list of pairs (tuples) giving the extents of the fixed-width
         fields of each line as half-open intervals (i.e., [from, to[ ), for each
         line type. The line types included in the colspecs indicates which line 
         types are supposed to be read. Lines with other types will be ignored.
         
 **names**: dict of line type -> list, default None
+
         dict of list of column names to use, one list for each line type.
         
 **dtype** dict of line type -> dict of column -> type, default None
+
         Data type for columns, for each line type. If not specified for a
         specific column, data will be kept as str.
         
 **chuncksize**: int, default None
+
         If specified, break the file into chunks and returns a generator.
         
 **nrows**: int, default None
+
         Limit the number of lines to be read.
         
