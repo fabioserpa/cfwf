@@ -7,29 +7,29 @@ Python module with a **read_cfwf** function for reading fixed-width formatted fi
 The function reads a **complex fixed-width format** file and returns a `dict` with a `pandas.DataFrame` for each record type specified (each key corresponding to a record type). Also supports reading the file in chunks for dealing with very large files.
 
 #### **Arguments**:
-* **filepath_or_buffer**: str, pathlib.Path, py._path.local.LocalPath or any
-        object with a read() method (such as a file handle or StringIO).
+* **filepath_or_buffer**: `str`, `pathlib.Path`, `py._path.local.LocalPath` or any
+        object with a `read()` method (such as a file handle or `StringIO`).
         
-* **type_width**: int  
-        Number of characters indicating the line type in the beginning of each 
+* **type_width**: `int`  
+        Number of characters indicating the record type in the beginning of each 
         line.
         
-* **colspecs**: dict of line type -> list of pairs (int, int).  
+* **colspecs**: `dict` of record type -> `list` of pairs `(int, int)`.  
         A dict of list of pairs (tuples) giving the extents of the fixed-width
         fields of each line as half-open intervals (i.e., [from, to[ ), for each
-        line type. The line types included in the colspecs indicates which line 
+        record type. The record types included in the colspecs indicates which record 
         types are supposed to be read. Lines with other types will be ignored.
         
-* **names**: dict of line type -> list, default None  
-        dict of list of column names to use, one list for each line type.
+* **names**: `dict` of line type -> `list`, default `None` 
+        dict of list of column names to use, one list for each record type.
         
-* **dtype** dict of line type -> dict of column -> type, default None  
-        Data type for columns, for each line type. If not specified for a
-        specific column, data will be kept as str.
+* **dtype**: `dict` of line type -> `dict` of column -> type, default `None`  
+        Data type for columns, for each record type. If not specified for a
+        specific column, data will be kept as `str`.
         
-* **chuncksize**: int, default None  
+* **chuncksize**: `int`, default `None` 
         If specified, break the file into chunks and returns a generator.
         
-* **nrows**: int, default None  
-        Limit the number of lines to be read.
+* **nrows**: `int`, default `None` 
+        Limit the number of lines to be read from file.
         
